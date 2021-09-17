@@ -15,3 +15,13 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
+  Build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - name: run cmake configure
+        run: cd ${{github.workspace}} && mkdir build && cmake -S . -B ./build
+      - name: run make and test it
+        run: cd ${{github.workspace}} && ./build/hello
+        

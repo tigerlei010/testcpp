@@ -23,5 +23,5 @@ jobs:
       - name: run cmake configure
         run: cd ${{github.workspace}} && mkdir build && cmake -S . -B ./build
       - name: run make and test it
-        run: cd ${{github.workspace}} && ./build/hello
+        run: cd ${{github.workspace}} && cmake --build ./build && ./build/hello
         
